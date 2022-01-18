@@ -13,5 +13,6 @@
     "python.sortImports.args": ["--profile", "black"],
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
-    }
+    },
+    "cSpell.words": ["inel", "nbytes", "paramiko", "recv", "rumad", "uprm"]
 }
