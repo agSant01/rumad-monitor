@@ -28,7 +28,7 @@ def send_cmd(
                 break
         else:
             c += 1
-            if c >= 5:
+            if c >= 4:
                 break
         data += r or bytes()
         time.sleep(1)
@@ -55,8 +55,6 @@ def get_sections(channel, year, semester, course_code) -> Set[Section]:
             sections_ += resp.splitlines()
         except Exception as e:
             print(e)
-
-    print(list(filter(lambda x: x.strip(), sections_)))
 
     return parse_sections(sections_)
 

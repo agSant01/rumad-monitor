@@ -20,9 +20,9 @@ KEY_WORDS = [
     "reservada",
     "total",
     "horario",
+    "h o r a r i o",
     "curso",
     "ej.",
-    "de",
     "computos",
     "error",
     "archivo",
@@ -57,7 +57,6 @@ class Section:
         self.code = course[0]
         self.creds = course[1]
         self.prof = " ".join(course[2:-3]) or None
-        print(course)
         self.cap = int(course[-3])
         self.used = int(course[-2])
 
@@ -81,11 +80,9 @@ def parse_sections(courses: List[str]) -> Set[Section]:
     filtered = set()
 
     for course in courses:
-
         if len(course.strip()) <= 1:
             continue
 
-        print("fuck", course)
         if any(kw.lower() in course.lower().replace(" ", "") for kw in KEY_WORDS):
             if "error" in course.lower():
                 print("Error: ", course)
