@@ -14,5 +14,14 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "cSpell.words": ["inel", "nbytes", "paramiko", "recv", "rumad", "uprm"]
+    "cSpell.words": [
+        "addrs",
+        "ehlo",
+        "inel",
+        "nbytes",
+        "paramiko",
+        "recv",
+        "rumad",
+        "uprm"
+    ]
 }
