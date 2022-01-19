@@ -1,7 +1,8 @@
 import pathlib
 import unittest
 
-from rumad_monitor.src.models.section import Section, parse_sections
+from rumad_monitor.src.models.section import Section
+from src.controllers.sections import parse_sections
 
 
 class SectionTest(unittest.TestCase):
@@ -48,6 +49,22 @@ class SectionTest(unittest.TestCase):
             section_list = set(str(sec) for sec in section_list)
             for check in checks:
                 self.assertIn(check, section_list)
+
+    def test_pretty(self):
+        section = Section(
+            "070           LW     1:30- 3:20pm    4   ROBERT ACAR            30    19    11"
+        )
+        expected = """    - Code: 070
+    - Professor: ROBERT ACAR
+    - Time: LW 1:30-3:20PM
+    - Credits: 4
+    - Capacity: 30
+    - Used spaces: 19
+    - Remaining spaces: 11"""
+
+        result = section.pretty()
+
+        self.assertEqual(result, expected)
 
 
 if __name__ == "__main__":

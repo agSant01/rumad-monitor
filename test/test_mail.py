@@ -55,7 +55,6 @@ class MailerTest(unittest.TestCase):
             "Integration test for RUMAD Monitor.",
         )
 
-        mailer.close()
         smtp_server.quit()
 
 

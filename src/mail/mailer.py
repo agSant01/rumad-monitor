@@ -20,10 +20,3 @@ class Mailer:
             to_addrs=send_to,
             msg=message.as_string(),
         )
-
-    def close(self):
-        self.__del__()
-
-    def __del__(self):
-        if hasattr(self, "smtp"):
-            self.smtp.close()

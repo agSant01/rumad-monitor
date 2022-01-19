@@ -354,7 +354,7 @@ class Terminal:
     # ---------- Constructor ----------
 
     def __init__(self,
-                 height=24,
+                 height=25,
                  width=80,
                  verbosity=False,
                  formatter=TextFormatter()):

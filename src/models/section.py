@@ -1,33 +1,9 @@
 import re
-from curses import flash
-from typing import List, Optional, Set
+from typing import Optional
 
 REGEX = re.compile(
     r"([LMWJV]+.+\d+:\d{2}-.*\d+:\d{2}\W*(am|pm|)|Por acuerdo)", re.IGNORECASE
 )
-
-KEY_WORDS = [
-    "oprima",
-    "universitario",
-    "universidad",
-    "universidad",
-    "puerto rico",
-    "períodos",
-    "programa",
-    "horarios de",
-    "--------",
-    ".sem.",
-    "reservada",
-    "total",
-    "horario",
-    "h o r a r i o",
-    "curso",
-    "ej.",
-    "computos",
-    "error",
-    "archivo",
-    "terminamos?",
-]
 
 
 class Section:
@@ -63,6 +39,15 @@ class Section:
     def remaining(self) -> int:
         return self.cap - self.used
 
+    def pretty(self) -> str:
+        return f"""    - Code: {self.code}
+    - Professor: {self.prof or 'Fantasma'}
+    - Time: {self.time or 'No disponible'}
+    - Credits: {self.creds}
+    - Capacity: {self.cap}
+    - Used spaces: {self.used}
+    - Remaining spaces: {self.remaining()}"""
+
     def __hash__(self) -> int:
         return hash(self.code)
 
@@ -74,20 +59,3 @@ class Section:
 
     def __str__(self) -> str:
         return self.__repr__()
-
-
-def parse_sections(courses: List[str]) -> Set[Section]:
-    filtered = set()
-
-    for course in courses:
-        if len(course.strip()) <= 1:
-            continue
-
-        if any(kw.lower() in course.lower().replace(" ", "") for kw in KEY_WORDS):
-            if "error" in course.lower():
-                print("Error: ", course)
-            continue
-
-        filtered.add(Section(course))
-
-    return filtered
