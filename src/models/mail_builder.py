@@ -6,7 +6,7 @@ from rumad_monitor.src.models.notifications import Notification
 
 class MailBuilder:
     def __init__(self, job_name: str, mailer: Mailer) -> None:
-        self.job_name: str = job_name
+        self.job_name: str = job_name.upper()
         self.mailer: Mailer = mailer
         self.notifications: List[Notification] = []
 
@@ -14,18 +14,15 @@ class MailBuilder:
         self.notifications.append(notification)
 
     def send_notification(self, send_from: str, send_to: str):
-        content: List[str] = [f"Job Name: ${self.job_name}\n"]
+        content: List[str] = [f'Job Name: "{self.job_name}"', "-" * 40, "\n"]
 
         for notification in self.notifications:
-            print("HA", "-" * 10)
-            print(notification.dump())
-
             if len(notification.courses) == 0:
                 continue
 
-            content += notification.dump()
+            content.append(notification.dump())
 
-        if content == 0:
+        if len(content) == 0:
             return
 
         message_to_send = "\n".join(content)

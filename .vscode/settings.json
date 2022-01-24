@@ -15,10 +15,13 @@
         "source.organizeImports": true
     },
     "cSpell.words": [
+        "ACAR",
         "addrs",
         "ehlo",
         "inel",
+        "mbuilder",
         "nbytes",
+        "notif",
         "paramiko",
         "recv",
         "rumad",

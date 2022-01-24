@@ -1,9 +1,10 @@
-import smtplib
 from email.mime.text import MIMEText
+
+from src.mail.connection import SmtpServer
 
 
 class Mailer:
-    def __init__(self, smtp_server) -> None:
+    def __init__(self, smtp_server: SmtpServer) -> None:
         # Create your SMTP session
         self.smtp = smtp_server
 

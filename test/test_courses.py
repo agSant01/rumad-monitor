@@ -8,9 +8,9 @@ from src.models.courses import Courses
 class CoursesModelTest(unittest.TestCase):
     def test_missing_professor(self):
         courses = Courses(["INEL4023", "MATE3032"], ["Manuel Toledo", None])
-        
+
         self.assertEqual(courses._courses["MATE3032"], [])
-        
+
         self.assertEqual(courses._courses.get("INVALID"), None)
 
         Courses(["INEL4023", "MATE3032"], ["Manuel Toledo", []])
@@ -54,3 +54,7 @@ class CoursesModelTest(unittest.TestCase):
                 ("CLASS3", ["Prof1", "Prof2"]),
             ],
         )
+
+
+if __name__ == "__main__":
+    unittest.main()

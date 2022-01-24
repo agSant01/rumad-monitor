@@ -33,8 +33,8 @@ def start_job():
 
     monitor = RumadMonitor("horario", "", Terminal())
 
-    preferred_sections = Notification("PREFERRED SECTIONS\n")
-    regular_sections = Notification("ALL SECTIONS\n")
+    preferred_sections = Notification("PREFERRED SECTIONS")
+    regular_sections = Notification("ALL SECTIONS")
 
     for course, professors in courses_to_monitor.get_pairs():
         logging.debug(format("Start_job" + course))
