@@ -8,7 +8,7 @@ def main():
 
     course = "INEL4207"
     courses = monitor.get_sections(
-        year=2021, semester=Semesters.Horario.SECOND, course_code=course
+        year=2021, semester=Semesters.Horario.SPRING_SEMESTER, course_code=course
     )
 
     print(course)

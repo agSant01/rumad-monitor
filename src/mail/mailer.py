@@ -1,8 +1,6 @@
 import smtplib
 from email.mime.text import MIMEText
 
-# from connection import SmtpServer
-
 
 class Mailer:
     def __init__(self, smtp_server) -> None:
